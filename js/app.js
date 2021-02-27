@@ -24,7 +24,14 @@ function agregarCurso(e){
 }
 
 function eliminarCurso(e){
-    console.log(e.target);
+
+    if(e.target.classList.contains('borrar-curso')){
+        const cursoId = e.target.getAttribute('data-id');
+
+        articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId);
+
+        carritoHTML();
+    }
 }
 
 function leerDatosCurso(curso){
@@ -55,7 +62,6 @@ function leerDatosCurso(curso){
 }
 
 function carritoHTML(){
-
     // Limpiar el HTML del body del carrito
     limpiarHTML();
 
